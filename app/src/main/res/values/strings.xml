@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">floMusic</string>
+
+    <string name="music_title">Title</string>
+    <string name="singer">Singer</string>
+    <string name="album">Album</string>
+    <string name="lyrics">lyrics</string>
 </resources>
