@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-    
+
     @GET("{songJson}")
     fun getSong(@Path("songJson") songJson: String): Call<Song>
 
