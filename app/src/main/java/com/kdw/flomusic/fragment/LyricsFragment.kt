@@ -17,8 +17,13 @@ class LyricsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         lyricsBinding = FragmentLyricsBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        lyricsBinding = null
     }
 }

@@ -3,10 +3,11 @@ package com.kdw.flomusic
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import com.kdw.flomusic.databinding.ActivityMainBinding
 import com.kdw.flomusic.fragment.MusicFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : FragmentActivity() {
 
     private var _binding: ActivityMainBinding ?= null
     private val binding get() = _binding!!

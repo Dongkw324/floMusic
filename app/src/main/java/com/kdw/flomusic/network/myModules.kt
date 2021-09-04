@@ -2,7 +2,7 @@ package com.kdw.flomusic.network
 
 import com.kdw.flomusic.BuildConfig
 import com.kdw.flomusic.api.ApiService
-import com.kdw.flomusic.util.EndPoints
+import com.kdw.flomusic.util.Constants
 import okhttp3.OkHttpClient
 import okhttp3.Protocol
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 val networkModule = module {
     single<ApiService> {
         Retrofit.Builder()
-                .baseUrl(EndPoints.baseUrl)
+                .baseUrl(Constants.baseUrl)
                 .client(OkHttpClient.Builder().also { client ->
                     if(BuildConfig.DEBUG) {
                         val logging = HttpLoggingInterceptor()
