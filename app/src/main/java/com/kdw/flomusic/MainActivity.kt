@@ -3,11 +3,17 @@ package com.kdw.flomusic
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
 import com.kdw.flomusic.databinding.ActivityMainBinding
+import com.kdw.flomusic.fragment.LyricsFragment
 import com.kdw.flomusic.fragment.MusicFragment
+import com.kdw.flomusic.viewmodel.MusicViewModel
 
 class MainActivity : FragmentActivity() {
+
+    private val musicViewModel: MusicViewModel by viewModels()
 
     private var _binding: ActivityMainBinding ?= null
     private val binding get() = _binding!!
@@ -20,10 +26,25 @@ class MainActivity : FragmentActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initMusic()
+    }
+
+    private fun initMusic() {
+        musicViewModel.exoPlayer.observe(this@MainActivity, {
+            binding.musicPlayerController.player = it
+            binding.musicPlayerController.showTimeoutMs = 0
+        })
+
+        binding.musicPlayerController.setProgressUpdateListener { position, _->
+            musicViewModel.setCurrentLyrics(position)
+        }
+
         if(supportFragmentManager.fragments.isEmpty()) {
             supportFragmentManager.beginTransaction().add(R.id.music_view_fragment, MusicFragment())
-                .disallowAddToBackStack().commit()
+                    .disallowAddToBackStack().commit()
         }
+
+        musicViewModel.getMusic()
     }
 
     override fun onDestroy() {
@@ -45,5 +66,12 @@ class MainActivity : FragmentActivity() {
                 super.onBackPressed()
             }
         }
+    }
+
+    fun changeFragment() {
+        supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in_top, R.anim.slide_out_bottom)
+                .replace(R.id.music_view_fragment, LyricsFragment())
+                .addToBackStack(null)
+                .commit()
     }
 }
