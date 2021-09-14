@@ -1,14 +1,13 @@
 package com.kdw.flomusic
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.Observer
 import com.kdw.flomusic.databinding.ActivityMainBinding
 import com.kdw.flomusic.fragment.LyricsFragment
 import com.kdw.flomusic.fragment.MusicFragment
+import com.kdw.flomusic.util.OtherFunctions
 import com.kdw.flomusic.viewmodel.MusicViewModel
 
 class MainActivity : FragmentActivity() {
@@ -26,10 +25,13 @@ class MainActivity : FragmentActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        OtherFunctions.makeStatusTransparent(this)
+
         initMusic()
     }
 
     private fun initMusic() {
+
         musicViewModel.exoPlayer.observe(this@MainActivity, {
             binding.musicPlayerController.player = it
             binding.musicPlayerController.showTimeoutMs = 0
@@ -63,13 +65,14 @@ class MainActivity : FragmentActivity() {
                 Toast.makeText(this, "한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
                 pressedTime = 0
             } else {
+                musicViewModel.releasePlayer()
                 super.onBackPressed()
             }
         }
     }
 
     fun changeFragment() {
-        supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in_top, R.anim.slide_out_bottom)
+        supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in_top, R.anim.slide_out_bottom, R.anim.slide_in_bottom, R.anim.slide_out_top)
                 .replace(R.id.music_view_fragment, LyricsFragment())
                 .addToBackStack(null)
                 .commit()

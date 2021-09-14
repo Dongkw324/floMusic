@@ -21,7 +21,7 @@ class Helper {
 
         //밀리초로 변환하는 함수
         private fun convert(timestamp: String): Long {
-            var time: Long = 0L
+            var time = 0L
 
             val temp = timestamp.split(":").map {
                 it.toLong()

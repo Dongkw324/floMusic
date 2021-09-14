@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.kdw.flomusic.MainActivity
 import com.kdw.flomusic.R
 import com.kdw.flomusic.databinding.FragmentMusicPlayerBinding
+import com.kdw.flomusic.util.OtherFunctions
 import com.kdw.flomusic.viewmodel.MusicViewModel
 
 
@@ -57,10 +59,10 @@ class MusicFragment : Fragment() {
             binding.currentLyrics.text = musicViewModel.getLyrics(it)
             binding.nextLyrics.text = musicViewModel.getLyrics(it+1)
 
-            if(it == -1) {
-                binding.currentLyrics.setTextColor(mContext.getColor(R.color.not_current_lyrics))
+            if(it != -1) {
+                binding.currentLyrics.setTextColor(ContextCompat.getColor(mContext, R.color.current_lyrics))
             } else {
-                binding.currentLyrics.setTextColor(mContext.getColor(R.color.current_lyrics))
+                binding.currentLyrics.setTextColor(ContextCompat.getColor(mContext, R.color.not_current_lyrics))
             }
 
             binding.lyricsView.setOnClickListener {

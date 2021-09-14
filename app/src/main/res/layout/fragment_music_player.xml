@@ -76,7 +76,7 @@
             android:id="@+id/current_lyrics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/not_current_lyrics"
             android:text="@string/lyrics_current"
             android:layout_gravity="center" />
 
@@ -84,7 +84,7 @@
             android:id="@+id/next_lyrics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/not_current_lyrics"
             android:text="@string/lyrics_next"
             android:layout_gravity="center" />
 

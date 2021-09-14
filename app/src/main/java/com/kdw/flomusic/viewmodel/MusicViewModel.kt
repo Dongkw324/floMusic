@@ -24,14 +24,14 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
     private val _musicData = MutableLiveData<Song>()
     private val _exoPlayer = MutableLiveData<SimpleExoPlayer>()
     private val _currentLyrics = MutableLiveData<Int>()
-    private val _lyrics = MutableLiveData<MutableList<Lyrics>>()
+    private val _lyrics = MutableLiveData<List<Lyrics>>()
     private val _lyricsToggleBtn = MutableLiveData<Boolean>()
     private val music: ApiService by inject(ApiService::class.java)
 
     val musicData : LiveData<Song> = _musicData
     val exoPlayer : LiveData<SimpleExoPlayer> = _exoPlayer
     val currentLyrics: LiveData<Int> = _currentLyrics
-    val lyrics: LiveData<MutableList<Lyrics>> = _lyrics
+    val lyrics: LiveData<List<Lyrics>> = _lyrics
     val lyricsToggleBtn: LiveData<Boolean> = _lyricsToggleBtn
 
     init {
@@ -80,7 +80,7 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getLyrics(index: Int) : String {
-        if(_lyrics.value == null || _lyrics.value!!.isEmpty() || index > _lyrics.value!!.size){
+        if(_lyrics.value == null || _lyrics.value!!.isEmpty() || index >= _lyrics.value!!.size){
             return ""
         }
 
