@@ -66,6 +66,14 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
         _currentLyrics.postValue(-1)
     }
 
+    fun getToggleBtn() : Boolean {
+        return _lyricsToggleBtn.value!!
+    }
+
+    fun setToggleBtn() {
+        _lyricsToggleBtn.postValue(_lyricsToggleBtn.value!!)
+    }
+
     fun setMusicFile() {
         _exoPlayer.value!!.addMediaItem(MediaItem.fromUri(_musicData.value!!.file))
         _exoPlayer.value!!.prepare()

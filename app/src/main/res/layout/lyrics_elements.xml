@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/lyrics"
-    android:textColor="@color/black"
+    android:textColor="@color/unclicked_visible"
     android:textStyle="bold"
     android:paddingTop="4dp"
     android:paddingStart="8dp"
