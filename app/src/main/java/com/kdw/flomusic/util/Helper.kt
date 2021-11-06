@@ -8,7 +8,7 @@ class Helper {
 
         fun setLyrics(lyrics: String) : MutableList<Lyrics>{
             val lyricManager = mutableListOf<Lyrics>()
-            val splitLyrics = lyrics.split('\n').toList()
+            val splitLyrics = lyrics.split("\n").toList()
 
             for(i in splitLyrics.indices) {
                 val lyricString = splitLyrics[i].split("[", "]").filter { it.isNotEmpty() }

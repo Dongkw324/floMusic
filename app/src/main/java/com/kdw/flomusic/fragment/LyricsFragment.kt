@@ -48,6 +48,9 @@ class LyricsFragment : Fragment() {
         })
 
         musicViewModel.lyrics.observe(viewLifecycleOwner, { lyrics ->
+
+            binding.lyricsContent.removeAllViews()
+
             for(i in lyrics.indices) {
                 val textView = View.inflate(mActivity, R.layout.lyrics_elements, null) as TextView
                 textView.text = lyrics[i].lyric
@@ -60,15 +63,15 @@ class LyricsFragment : Fragment() {
                     }
                 }
 
-                binding.lyricsManager.addView(textView)
+                binding.lyricsContent.addView(textView)
             }
         })
 
         musicViewModel.currentLyrics.observe(viewLifecycleOwner, {
-            val num = binding.lyricsManager.childCount
+            val num = binding.lyricsContent.childCount
 
             for(i in 0 until num) {
-                val lyricsText = binding.lyricsManager[i] as TextView
+                val lyricsText = binding.lyricsContent[i] as TextView
                 if(i == it) {
                     lyricsText.setTextColor(ContextCompat.getColor(mContext, R.color.current_lyrics))
                 } else {
