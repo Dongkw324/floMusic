@@ -32,7 +32,7 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
     val exoPlayer : LiveData<SimpleExoPlayer> = _exoPlayer
     val currentLyrics: LiveData<Int> = _currentLyrics
     val lyrics: LiveData<List<Lyrics>> = _lyrics
-    val lyricsToggleBtn: LiveData<Boolean> = _lyricsToggleBtn
+    val toggledBtn: LiveData<Boolean> = _lyricsToggleBtn
 
     init {
         _lyricsToggleBtn.value = false

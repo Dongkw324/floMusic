@@ -2,6 +2,7 @@ package com.kdw.flomusic.fragment
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -81,11 +82,12 @@ class LyricsFragment : Fragment() {
             }
         })
 
-        musicViewModel.lyricsToggleBtn.observe(viewLifecycleOwner, {
+        musicViewModel.toggledBtn.observe(viewLifecycleOwner, {
             if(it) {
-                binding.lyricsToggleBtn.setColorFilter(Color.parseColor("#0027FF"))
+                binding.lyricsToggleBtn.setBackgroundColor(Color.parseColor("#00000000"))
+                binding.lyricsToggleBtn.setColorFilter(Color.parseColor("#0027FF"), PorterDuff.Mode.SRC)
             } else {
-                binding.lyricsCloseBtn.setColorFilter(Color.parseColor("#6BD3D3D3"))
+                binding.lyricsToggleBtn.colorFilter = null
             }
         })
 
