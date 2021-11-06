@@ -71,7 +71,7 @@ class MusicViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun setToggleBtn() {
-        _lyricsToggleBtn.postValue(_lyricsToggleBtn.value!!)
+        _lyricsToggleBtn.postValue(!(_lyricsToggleBtn.value!!))
     }
 
     fun setMusicFile() {

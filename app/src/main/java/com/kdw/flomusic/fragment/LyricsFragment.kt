@@ -1,6 +1,7 @@
 package com.kdw.flomusic.fragment
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -82,9 +83,9 @@ class LyricsFragment : Fragment() {
 
         musicViewModel.lyricsToggleBtn.observe(viewLifecycleOwner, {
             if(it) {
-                binding.lyricsToggleBtn.setBackgroundColor(ContextCompat.getColor(mContext, R.color.clicked_visible))
+                binding.lyricsToggleBtn.setColorFilter(Color.parseColor("#0027FF"))
             } else {
-                binding.lyricsToggleBtn.setBackgroundColor(ContextCompat.getColor(mContext, R.color.unclicked_visible))
+                binding.lyricsCloseBtn.setColorFilter(Color.parseColor("#6BD3D3D3"))
             }
         })
 

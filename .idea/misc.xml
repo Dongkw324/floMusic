@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/floMusic/app/src/main/res/drawable/ic_toggle.xml" value="0.18981481481481483" />
         <entry key="..\:/floMusic/app/src/main/res/layout/fragment_lyrics.xml" value="0.1" />
         <entry key="..\:/floMusic/app/src/main/res/layout/lyrics_elements.xml" value="0.264" />
       </map>
