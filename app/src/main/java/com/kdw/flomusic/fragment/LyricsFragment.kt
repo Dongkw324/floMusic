@@ -84,8 +84,8 @@ class LyricsFragment : Fragment() {
 
         musicViewModel.toggledBtn.observe(viewLifecycleOwner, {
             if(it) {
-                binding.lyricsToggleBtn.setBackgroundColor(Color.parseColor("#00000000"))
-                binding.lyricsToggleBtn.setColorFilter(Color.parseColor("#0027FF"), PorterDuff.Mode.SRC)
+                //binding.lyricsToggleBtn.setBackgroundColor(Color.parseColor("#00000000"))
+                binding.lyricsToggleBtn.setColorFilter(Color.parseColor("#1399D6"))
             } else {
                 binding.lyricsToggleBtn.colorFilter = null
             }
