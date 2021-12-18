@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
+import com.google.android.material.snackbar.Snackbar
 import com.kdw.flomusic.databinding.ActivityMainBinding
 import com.kdw.flomusic.fragment.LyricsFragment
 import com.kdw.flomusic.fragment.MusicFragment
@@ -24,6 +25,10 @@ class MainActivity : FragmentActivity() {
 
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if(!OtherFunctions.isNetworkConnected(this)) {
+            Toast.makeText(this, "네트워크 연결 불안정", Toast.LENGTH_SHORT).show()
+        }
 
         OtherFunctions.makeStatusTransparent(this)
 

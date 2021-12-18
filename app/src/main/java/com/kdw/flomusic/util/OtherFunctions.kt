@@ -13,8 +13,6 @@ import android.view.WindowInsetsController
 @Suppress("DEPRECATION")
 object OtherFunctions {
     fun isNetworkConnected(context: Context?): Boolean {
-        var result = false
-
         if(context == null)
             return false
 
@@ -24,21 +22,21 @@ object OtherFunctions {
             val networkCapabilities = networkManager.getNetworkCapabilities(networkManager.activeNetwork)
             if(networkCapabilities != null) {
                 if(networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)){
-                    result = true
+                    return true
                 } else if(networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)){
-                    result = true
+                    return true
                 } else if(networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
-                    result = true
+                    return true
                 }
             }
         } else {
             val activeNetwork = networkManager.activeNetworkInfo
             if(activeNetwork != null && activeNetwork.isConnected){
-                result = true
+                return true
             }
         }
 
-        return result
+        return false
     }
 
     fun makeStatusTransparent(activity: Activity) {

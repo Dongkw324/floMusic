@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/floMusic/app/src/main/res/drawable/close_button.xml" value="0.14947916666666666" />
         <entry key="..\:/floMusic/app/src/main/res/drawable/focused_circle.xml" value="0.15462962962962962" />
         <entry key="..\:/floMusic/app/src/main/res/drawable/ic_toggle.xml" value="0.18981481481481483" />
         <entry key="..\:/floMusic/app/src/main/res/drawable/unfocused_circle.xml" value="0.15462962962962962" />
